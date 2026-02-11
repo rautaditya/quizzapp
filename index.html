@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCS Smart Hiring Quiz - Mahila BCA Mahavidyalaya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>Mahila BCA Mahavidyalaya</h1>
+            <p class="subtitle">TCS Smart Hiring Preparation Paper No 10</p>
+        </header>
+
+        <!-- Quiz Container -->
+        <div class="quiz-container" id="quizContainer">
+            <div class="main-content">
+                <!-- Question Header -->
+                <div class="question-header">
+                    <h2 id="questionNumber">Question 1</h2>
+                    <div class="timer">
+                        <span class="timer-icon">⏱</span>
+                        <span class="timer-text" id="timer">45:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="question-card">
+                    <p class="question-text" id="questionText"></p>
+
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be inserted here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" id="previousBtn" onclick="previousQuestion()">
+                        ← Previous
+                    </button>
+
+                    <button class="btn-mark" id="markBtn" onclick="toggleMark()">
+                        ⭐ Mark for Review
+                    </button>
+
+                    <button class="btn-secondary" id="nextBtn" onclick="nextQuestion()">
+                        Next →
+                    </button>
+
+                    <button class="btn-submit" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                        Submit Quiz
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="question-palette">
+                    <h3>Question Palette</h3>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #22c55e;"></span>
+                            <span>Answered</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #f59e0b;"></span>
+                            <span>Marked</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #94a3b8;"></span>
+                            <span>Unattempted</span>
+                        </div>
+                    </div>
+
+                    <div class="question-grid" id="questionGrid">
+                        <!-- Question numbers will be inserted here by JavaScript -->
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Answered:</span>
+                            <span class="stat-value" id="answeredCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Marked:</span>
+                            <span class="stat-value" id="markedCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Remaining:</span>
+                            <span class="stat-value" id="remainingCount">10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Container (Hidden Initially) -->
+        <div class="results-container" id="resultsContainer" style="display: none;">
+            <div class="results-card">
+                <h2>Quiz Completed!</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span class="score-number" id="scoreNumber">0</span>
+                        <span class="score-total" id="scoreTotal">/ 10</span>
+                    </div>
+                    <p class="percentage" id="percentage">0%</p>
+                </div>
+
+                <div class="results-summary">
+                    <div class="summary-item">
+                        <span class="label">Correct Answers:</span>
+                        <span class="value correct" id="correctCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Incorrect Answers:</span>
+                        <span class="value incorrect" id="incorrectCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Unattempted:</span>
+                        <span class="value unattempted" id="unattemptedCount">0</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="restartQuiz()">
+                    Restart Quiz
+                </button>
+
+                <div class="answers-review" id="answersReview">
+                    <h3>Answer Key:</h3>
+                    <div id="answersList">
+                        <!-- Answers will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
