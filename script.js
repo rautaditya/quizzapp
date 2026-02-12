@@ -315,7 +315,7 @@ correct:1
 let currentQuestion = 0;
 let userAnswers = new Array(questions.length).fill(null);
 let markedQuestions = new Set();
-let timeLeft = 2700; // 45 minutes in seconds
+let timeLeft = 60 * 60; // 60 minutes in seconds
 let timerInterval;
 let violations = 0;
 let examStarted = false;
