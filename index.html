@@ -3,137 +3,607 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCS Smart Hiring Quiz - Mahila BCA Mahavidyalaya</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TCS Smart Hiring Quiz - Mahila BCA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar { 
+            width: 8px; 
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track { 
+            background: #f1f5f9; 
+            border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 10px;
+            border: 2px solid #f1f5f9;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { 
+            background: linear-gradient(180deg, #764ba2, #667eea);
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .animate-slide-in {
+            animation: slideInFromTop 0.5s ease-out;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .animate-shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .timer-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .option-hover {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .option-hover:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .question-card {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .palette-btn {
+            transition: all 0.2s ease;
+        }
+
+        .palette-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .timer-warning {
+            animation: pulse 1s ease-in-out infinite;
+            background-color: #fef2f2 !important;
+            color: #dc2626 !important;
+            border-color: #fca5a5 !important;
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        /* Warning overlay */
+        .warning-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(220, 38, 38, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: justify-center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Checkbox custom styling */
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .custom-checkbox:checked {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+        }
+
+        .custom-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Fullscreen styles */
+        :fullscreen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        :-webkit-full-screen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        :-moz-full-screen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
 </head>
-<body>
-    <div class="app" id="app">
-        <!-- Header -->
-        <header class="header">
-            <h1>Mahila BCA Mahavidyalaya</h1>
-            <p class="subtitle">TCS Smart Hiring Preparation Paper No 10</p>
-        </header>
+<body class="min-h-screen">
 
-        <!-- Quiz Container -->
-        <div class="quiz-container" id="quizContainer">
-            <div class="main-content">
-                <!-- Question Header -->
-                <div class="question-header">
-                    <h2 id="questionNumber">Question 1</h2>
-                    <div class="timer">
-                        <span class="timer-icon">⏱</span>
-                        <span class="timer-text" id="timer">45:00</span>
-                    </div>
+    <!-- Start Screen -->
+    <div id="startScreen" class="min-h-screen flex items-center justify-center p-4">
+        <div class="glass-effect rounded-3xl shadow-2xl max-w-4xl w-full overflow-hidden animate-slide-in">
+            <!-- Header -->
+            <div class="gradient-bg p-8 text-center text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute inset-0" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
                 </div>
-
-                <!-- Question Card -->
-                <div class="question-card">
-                    <p class="question-text" id="questionText"></p>
-
-                    <div class="options-container" id="optionsContainer">
-                        <!-- Options will be inserted here by JavaScript -->
+                <div class="relative">
+                    <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
                     </div>
-                </div>
-
-                <!-- Navigation Buttons -->
-                <div class="navigation-buttons">
-                    <button class="btn-secondary" id="previousBtn" onclick="previousQuestion()">
-                        ← Previous
-                    </button>
-
-                    <button class="btn-mark" id="markBtn" onclick="toggleMark()">
-                        ⭐ Mark for Review
-                    </button>
-
-                    <button class="btn-secondary" id="nextBtn" onclick="nextQuestion()">
-                        Next →
-                    </button>
-
-                    <button class="btn-submit" id="submitBtn" onclick="submitQuiz()" style="display: none;">
-                        Submit Quiz
-                    </button>
+                    <h1 class="text-4xl font-black mb-2">Mahila BCA Mahavidyalaya</h1>
+                    <p class="text-xl text-white/90 font-semibold">TCS Smart Hiring Preparation Test</p>
+                    <div class="mt-4 inline-block bg-white/20 backdrop-blur px-6 py-2 rounded-full">
+                        <p class="text-sm font-bold">PAPER #10</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div class="question-palette">
-                    <h3>Question Palette</h3>
-                    
-                    <div class="legend">
-                        <div class="legend-item">
-                            <span class="legend-color" style="background-color: #22c55e;"></span>
-                            <span>Answered</span>
+            <!-- Exam Information -->
+            <div class="p-8 space-y-6">
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">
+                        <svg class="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                        Exam Information
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-semibold">Total Questions</p>
+                                <p class="text-xl font-bold text-slate-800">60 Questions</p>
+                            </div>
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-color" style="background-color: #f59e0b;"></span>
-                            <span>Marked</span>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-semibold">Duration</p>
+                                <p class="text-xl font-bold text-slate-800">60 Minutes</p>
+                            </div>
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-color" style="background-color: #94a3b8;"></span>
-                            <span>Unattempted</span>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-semibold">Total Marks</p>
+                                <p class="text-xl font-bold text-slate-800">60 Marks</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="question-grid" id="questionGrid">
-                        <!-- Question numbers will be inserted here by JavaScript -->
-                    </div>
-
-                    <div class="stats">
-                        <div class="stat-item">
-                            <span class="stat-label">Answered:</span>
-                            <span class="stat-value" id="answeredCount">0</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Marked:</span>
-                            <span class="stat-value" id="markedCount">0</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Remaining:</span>
-                            <span class="stat-value" id="remainingCount">10</span>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-semibold">Type</p>
+                                <p class="text-xl font-bold text-slate-800">Multiple Choice</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Instructions -->
+                <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        Important Instructions
+                    </h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>The test will automatically enter <strong>fullscreen mode</strong> when you start.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Do NOT press <strong>Esc, Alt+Tab, Windows Key</strong> or try to exit fullscreen during the test.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Any attempt to switch tabs or applications will trigger a <strong>warning</strong>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Each question carries <strong>1 mark</strong>. There is no negative marking.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>You can navigate between questions using the question palette.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>The test will auto-submit when time runs out.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Declaration -->
+                <div class="bg-slate-50 border-2 border-slate-200 rounded-2xl p-6">
+                    <label class="flex items-start gap-3 cursor-pointer group">
+                        <input type="checkbox" id="agreeCheckbox" class="custom-checkbox mt-1">
+                        <span class="text-slate-700 select-none">
+                            I have read and understood all the instructions. I agree to abide by the exam rules and regulations. I understand that any violation will result in disqualification.
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Start Button -->
+                <button 
+                    id="startExamBtn" 
+                    disabled
+                    onclick="startExam()" 
+                    class="w-full gradient-bg text-white py-5 rounded-2xl font-bold text-xl transition-all shadow-lg hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none transform hover:scale-105 flex items-center justify-center gap-3"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Start Exam
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- Results Container (Hidden Initially) -->
-        <div class="results-container" id="resultsContainer" style="display: none;">
-            <div class="results-card">
-                <h2>Quiz Completed!</h2>
-                <div class="score-display">
-                    <div class="score-circle">
-                        <span class="score-number" id="scoreNumber">0</span>
-                        <span class="score-total" id="scoreTotal">/ 10</span>
+    <!-- Warning Overlay (Hidden by default) -->
+    <div id="warningOverlay" class="hidden warning-overlay">
+        <div class="text-center text-white animate-shake">
+            <div class="w-32 h-32 bg-white/20 backdrop-blur rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <h2 class="text-5xl font-black mb-4">WARNING!</h2>
+            <p class="text-2xl font-semibold mb-2" id="warningMessage">Please stay in fullscreen mode</p>
+            <p class="text-xl opacity-90 mb-8" id="warningCount">Violations: <span id="violationCount" class="font-black">0</span></p>
+            <button onclick="dismissWarning()" class="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-all shadow-xl">
+                Return to Exam
+            </button>
+        </div>
+    </div>
+
+    <!-- Quiz Interface (Hidden initially) -->
+    <div id="quizInterface" class="hidden">
+        <!-- Header -->
+        <header class="glass-effect sticky top-0 z-50 shadow-lg animate-slide-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-center md:text-left">
+                        <div class="flex items-center gap-3 justify-center md:justify-start">
+                            <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 class="text-xl md:text-2xl font-extrabold text-slate-800">Mahila BCA Mahavidyalaya</h1>
+                                <p class="text-xs md:text-sm gradient-bg bg-clip-text text-transparent font-bold tracking-wide">TCS SMART HIRING PREP: PAPER #11</p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="percentage" id="percentage">0%</p>
+                    
+                    <div class="flex items-center gap-3 md:gap-4">
+                        <!-- Progress indicator -->
+                        <div class="hidden sm:flex flex-col items-end">
+                            <span class="text-xs font-semibold text-slate-500 mb-1">Progress</span>
+                            <div class="w-32 h-2 bg-slate-200 rounded-full overflow-hidden">
+                                <div id="progressBar" class="h-full gradient-bg progress-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timer -->
+                        <div id="timerCard" class="flex items-center gap-2 bg-gradient-to-r from-red-50 to-orange-50 text-red-600 px-4 md:px-6 py-3 rounded-xl border-2 border-red-200 shadow-md">
+                            <svg class="w-5 h-5 timer-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-mono text-lg md:text-xl font-bold" id="timer">45:00</span>
+                        </div>
+                        
+                        <!-- Submit button -->
+                        <button onclick="submitQuiz()" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-5 md:px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <span class="hidden sm:inline">Finish Test</span>
+                            <span class="sm:hidden">Finish</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+                
+                <!-- Question Section -->
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="glass-effect rounded-3xl overflow-hidden question-card animate-fade-in">
+                        <!-- Question Header -->
+                        <div class="gradient-bg px-6 py-4 flex justify-between items-center text-white">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center font-bold" id="questionNumberIcon">1</div>
+                                <span class="text-sm md:text-base font-bold tracking-wide" id="questionNumber">Question 1 of 10</span>
+                            </div>
+                            <button id="markBtn" onclick="toggleMark()" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur px-4 py-2 rounded-lg transition-all font-semibold text-sm">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span id="markText">Mark</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Question Content -->
+                        <div class="p-6 md:p-10">
+                            <div class="mb-8">
+                                <p class="text-xl md:text-2xl text-slate-800 font-semibold leading-relaxed" id="questionText">
+                                    Loading question...
+                                </p>
+                            </div>
+
+                            <div class="space-y-4" id="optionsContainer">
+                                <!-- Options will be rendered here -->
+                            </div>
+                        </div>
+
+                        <!-- Navigation Footer -->
+                        <div class="bg-gradient-to-r from-slate-50 to-slate-100 px-6 md:px-10 py-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                            <button onclick="previousQuestion()" id="previousBtn" class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 font-bold text-slate-600 bg-white border-2 border-slate-300 rounded-xl hover:bg-slate-50 hover:border-slate-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                Previous
+                            </button>
+                            
+                            <div class="hidden sm:block text-center">
+                                <p class="text-sm text-slate-500 font-medium">Question <span id="currentNum">1</span> of <span id="totalNum">10</span></p>
+                            </div>
+                            
+                            <button onclick="nextQuestion()" id="nextBtn" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 font-bold text-white gradient-bg rounded-xl hover:shadow-xl transition-all shadow-lg transform hover:scale-105">
+                                <span id="nextBtnText">Next</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="results-summary">
-                    <div class="summary-item">
-                        <span class="label">Correct Answers:</span>
-                        <span class="value correct" id="correctCount">0</span>
+                <!-- Sidebar -->
+                <aside class="lg:col-span-4 space-y-6">
+                    <!-- Question Palette -->
+                    <div class="glass-effect rounded-3xl shadow-xl p-6 sticky top-24 animate-fade-in">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-1 h-8 gradient-bg rounded-full"></div>
+                            <h3 class="text-slate-800 font-bold text-lg">Question Palette</h3>
+                        </div>
+                        
+                        <div class="grid grid-cols-5 gap-3 mb-6" id="questionGrid">
+                            <!-- Palette buttons will be rendered here -->
+                        </div>
+
+                        <!-- Statistics -->
+                        <div class="space-y-3 pt-6 border-t-2 border-slate-200">
+                            <div class="flex items-center justify-between p-3 rounded-xl stats-card">
+                                <span class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+                                    <span class="w-4 h-4 rounded-md bg-green-500 shadow-sm"></span> Answered
+                                </span>
+                                <span class="font-black text-lg text-green-600" id="answeredCount">0</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-xl stats-card">
+                                <span class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+                                    <span class="w-4 h-4 rounded-md bg-amber-500 shadow-sm"></span> Marked
+                                </span>
+                                <span class="font-black text-lg text-amber-600" id="markedCount">0</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-xl stats-card">
+                                <span class="flex items-center gap-2 text-sm font-semibold text-slate-600">
+                                    <span class="w-4 h-4 rounded-md bg-slate-400 shadow-sm"></span> Not Visited
+                                </span>
+                                <span class="font-black text-lg text-slate-600" id="remainingCount">10</span>
+                            </div>
+                        </div>
+
+                        <!-- Instructions -->
+                        <div class="mt-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-xl">
+                            <h4 class="text-sm font-bold text-blue-900 mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                                </svg>
+                                Quick Tips
+                            </h4>
+                            <ul class="text-xs text-blue-800 space-y-1">
+                                <li>• Use palette to navigate</li>
+                                <li>• Mark questions to review</li>
+                                <li>• Check time regularly</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="summary-item">
-                        <span class="label">Incorrect Answers:</span>
-                        <span class="value incorrect" id="incorrectCount">0</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="label">Unattempted:</span>
-                        <span class="value unattempted" id="unattemptedCount">0</span>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultsContainer" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <!-- Results Header -->
+            <div class="gradient-bg p-8 text-center text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute inset-0" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
+                </div>
+                <div class="relative">
+                    <h2 class="text-4xl font-black mb-2">Test Completed!</h2>
+                    <p class="text-white/80 font-medium">Here's your performance summary</p>
+                </div>
+            </div>
+
+            <!-- Score Display -->
+            <div class="p-8 text-center border-b border-slate-100">
+                <div class="flex justify-center mb-6">
+                    <div class="relative">
+                        <svg class="w-48 h-48 transform -rotate-90">
+                            <circle cx="96" cy="96" r="88" stroke="#e2e8f0" stroke-width="12" fill="none"></circle>
+                            <circle id="scoreCircle" cx="96" cy="96" r="88" stroke="url(#gradient)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="552.92" stroke-dashoffset="552.92" style="transition: stroke-dashoffset 1s ease;"></circle>
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-6xl font-black gradient-bg bg-clip-text text-transparent" id="scoreNumber">0</span>
+                            <span class="text-sm font-bold text-slate-500 uppercase tracking-widest mt-1">Score</span>
+                        </div>
                     </div>
                 </div>
+                
+                <p class="text-3xl font-bold gradient-bg bg-clip-text text-transparent mb-8" id="percentage">0% Accuracy</p>
 
-                <button class="btn-primary" onclick="restartQuiz()">
-                    Restart Quiz
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-200 transform hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <p class="text-xs text-green-600 font-bold uppercase tracking-wide mb-1">Correct</p>
+                        <p class="text-3xl font-black text-green-700" id="correctCount">0</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-red-50 to-rose-50 p-6 rounded-2xl border-2 border-red-200 transform hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-xs text-red-600 font-bold uppercase tracking-wide mb-1">Incorrect</p>
+                        <p class="text-3xl font-black text-red-700" id="incorrectCount">0</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-slate-50 to-gray-50 p-6 rounded-2xl border-2 border-slate-200 transform hover:scale-105 transition-transform">
+                        <div class="w-12 h-12 bg-slate-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                            </svg>
+                        </div>
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-wide mb-1">Skipped</p>
+                        <p class="text-3xl font-black text-slate-600" id="unattemptedCount">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Review -->
+            <div class="p-8 space-y-6">
+                <h3 class="font-bold text-slate-800 text-xl flex items-center gap-2">
+                    <svg class="w-6 h-6 gradient-bg rounded p-1 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    Detailed Review
+                </h3>
+                <div id="answersList" class="space-y-4 text-left">
+                    <!-- Review items will be rendered here -->
+                </div>
+                <button onclick="location.reload()" class="w-full gradient-bg text-white py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    Retake Test
                 </button>
-
-                <div class="answers-review" id="answersReview">
-                    <h3>Answer Key:</h3>
-                    <div id="answersList">
-                        <!-- Answers will be inserted here by JavaScript -->
-                    </div>
-                </div>
             </div>
         </div>
     </div>

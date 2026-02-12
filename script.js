@@ -1,640 +1,846 @@
-const quizData = [
+const questions = [
 
-/* ---------------- QUANTITATIVE (1–20) ---------------- */
+/* ================= QUANTITATIVE ================= */
 
 {
-id:1,
-question:"If the HCF of two numbers is 15 and their LCM is 300, and one number is 60, what is the other?",
-options:["50","75","65","100"],
+q:"If the sum of two numbers is 120 and their HCF is 12, how many such pairs exist?",
+options:["3","4","5","6"],
 correct:1
 },
 {
-id:2,
-question:"A sum of money doubles itself in 8 years at simple interest. What is the rate of interest?",
-options:["10%","12.5%","15%","20%"],
+q:"A number when divided by 296 leaves remainder 75. What remainder when divided by 37?",
+options:["1","2","3","4"],
 correct:1
 },
 {
-id:3,
-question:"The average of 5 numbers is 27. If one number is excluded, the average becomes 25. The excluded number is:",
-options:["35","45","55","30"],
-correct:0
-},
-{
-id:4,
-question:"A train 150m long crosses a bridge 250m long in 20 seconds. What is the speed of the train?",
-options:["72","54","60","80"],
-correct:0
-},
-{
-id:5,
-question:"A fruit seller buys lemons at 2 for ₹1 and sells them at 5 for ₹3. His profit percentage is:",
-options:["10%","15%","20%","25%"],
+q:"The difference between CI and SI on ₹8000 for 2 years at 10% is:",
+options:["60","70","80","90"],
 correct:2
 },
 {
-id:6,
-question:"If A:B = 3:4 and B:C = 8:9, then A:C is:",
-options:["1:2","2:3","3:2","4:3"],
+q:"If log2(x) + log2(x-2) = 3, find x.",
+options:["2","4","6","8"],
 correct:1
 },
 {
-id:7,
-question:"75% of 480 + 25% of 800 = ?",
-options:["500","560","600","650"],
-correct:1
-},
-{
-id:8,
-question:"The ratio of the ages of Priya and Riya is 4:5. If the sum of their ages is 81, what is Priya’s age?",
-options:["36","45","40","32"],
-correct:0
-},
-{
-id:9,
-question:"A box contains 5 red and 4 blue balls. If two balls are drawn at random, what is the probability that both are red?",
-options:["5/18","2/9","5/12","4/9"],
-correct:0
-},
-{
-id:10,
-question:"A cylinder has a radius of 7 cm and height of 10 cm. Find its curved surface area.",
-options:["440","154","220","616"],
-correct:0
-},
-{
-id:11,
-question:"Which of the following is a prime number?",
-options:["91","87","119","97"],
+q:"A train 200m crosses another 300m train in opposite direction in 10s. Speed of faster train if slower is 54 km/h?",
+options:["72","90","108","126"],
 correct:3
 },
 {
-id:12,
-question:"A can do a piece of work in 12 days and B in 24 days. How many days will they take together?",
-options:["9","8","10","6"],
+q:"Find next: 2,5,11,23,47,?",
+options:["91","95","97","99"],
 correct:1
 },
 {
-id:13,
-question:"Find the missing number: 1, 4, 9, 16, 25, ?",
-options:["30","35","36","49"],
+q:"If a:b = 4:5, b:c = 6:7, find a:c.",
+options:["12:35","24:35","20:21","30:49"],
+correct:1
+},
+{
+q:"A can do work in 8 days, B in 12 days. After 2 days A leaves. Remaining time?",
+options:["6","7","8","9"],
 correct:2
 },
 {
-id:14,
-question:"If 15% of x = 20% of y, then x:y is:",
-options:["3:4","4:3","15:20","2:3"],
-correct:1
+q:"Find the smallest number divisible by 8,12,15 leaving remainder 5.",
+options:["115","120","125","245"],
+correct:3
 },
 {
-id:15,
-question:"A square’s side is increased by 20%. The percentage increase in its area is:",
-options:["20%","40%","44%","36%"],
-correct:2
-},
-{
-id:16,
-question:"Find the Median of the data: 10, 15, 12, 18, 20.",
-options:["12","15","18","15.5"],
-correct:1
-},
-{
-id:17,
-question:"A car travels at 60 km/hr for 2 hours and 40 km/hr for 3 hours. Average speed is:",
-options:["50","48","45","52"],
-correct:1
-},
-{
-id:18,
-question:"(0.5 × 0.5 × 0.5) + (0.1 × 0.1 × 0.1) = ?",
-options:["0.126","0.26","0.0126","0.136"],
+q:"If sinθ = 3/5, find cosθ.",
+options:["4/5","5/4","3/4","2/5"],
 correct:0
 },
 {
-id:19,
-question:"Solve for x: 5x - 10 = 2x + 8.",
-options:["4","6","8","10"],
+q:"Average of 20 numbers is 50. One number 100 replaced by 40. New average?",
+options:["46","47","48","49"],
 correct:1
 },
 {
-id:20,
-question:"A person loses 10% by selling an item for ₹180. At what price should he sell it to gain 10%?",
-options:["200","210","220","240"],
+q:"A man sells at 20% loss. Had he sold for ₹120 more, gain 10%. Find CP.",
+options:["400","480","500","600"],
+correct:1
+},
+{
+q:"If 5^(x+1) = 125, find x.",
+options:["1","2","3","4"],
+correct:1
+},
+{
+q:"Probability of getting at least one head in two coin tosses?",
+options:["1/2","3/4","1/4","2/3"],
+correct:1
+},
+{
+q:"Find missing: 4,18,48,100,?",
+options:["150","168","180","196"],
 correct:2
+},
+{
+q:"Boat speed 10 km/h, stream 4 km/h. Upstream speed?",
+options:["4","5","6","7"],
+correct:2
+},
+{
+q:"If x² - 5x + 6 = 0, find x.",
+options:["2 or 3","1 or 6","-2 or -3","None"],
+correct:0
+},
+{
+q:"Find area of triangle with sides 5,12,13.",
+options:["20","30","40","60"],
+correct:1
+},
+{
+q:"Simple interest on ₹5000 for 3 yrs is ₹1500. Rate?",
+options:["8%","10%","12%","15%"],
+correct:1
+},
+{
+q:"Find next: 1,1,2,6,24,120,?",
+options:["240","360","600","720"],
+correct:3
 },
 
-/* ---------------- LOGICAL (21–40) ---------------- */
+/* ================= LOGICAL ================= */
 
 {
-id:21,
-question:"If SMART is coded as UKCVV, then TREND is coded as:",
-options:["VTGPF","VTHPG","VUGPF","VVGPF"],
+q:"Five people sit in a row. A is left of B but right of C. D is right of B. Who is in middle?",
+options:["A","B","C","Cannot determine"],
 correct:0
 },
 {
-id:22,
-question:"Pointing to a woman, Abhi said, 'She is the daughter of my father's only son.' How is Abhi related to her?",
-options:["Brother","Uncle","Father","Grandfather"],
+q:"Mirror time is 6:20. Actual time?",
+options:["5:40","6:40","7:40","8:40"],
+correct:0
+},
+{
+q:"Odd pair:",
+options:["Square-4","Pentagon-5","Triangle-4","Hexagon-6"],
 correct:2
 },
 {
-id:23,
-question:"Odd one out:",
-options:["Keyboard","Mouse","Monitor","Scanner"],
+q:"If FLOWER coded as GMPXFS, TREE?",
+options:["USFF","USGF","USFFS","VSGG"],
+correct:0
+},
+{
+q:"Statements: Some cars are bikes. All bikes are buses. Conclusion?",
+options:["Some cars are buses","All cars buses","No cars buses","Cannot say"],
+correct:0
+},
+{
+q:"Find next: AB, DEF, HIJK, MNOPQ, ?",
+options:["RSTUV","TUVWX","STUVW","UVWXY"],
 correct:2
 },
 {
-id:24,
-question:"All dogs are cats. All cats are lions. Conclusion: All dogs are lions.",
-options:["True","False","Can't say","None"],
-correct:0
-},
-{
-id:25,
-question:"If Sunday is the first day of a month, what day is the 25th?",
-options:["Friday","Wednesday","Tuesday","Monday"],
+q:"A walks 10m east, 10m north, 10m west. Distance from start?",
+options:["0","10","20","30"],
 correct:1
 },
 {
-id:26,
-question:"A is B's sister. C is B's mother. D is C's father. How is D related to A?",
-options:["Grandfather","Father","Son","Uncle"],
-correct:0
-},
-{
-id:27,
-question:"Series: QPO, NML, KJI, ____, EDC.",
-options:["HGF","CAB","JKL","GHI"],
-correct:0
-},
-{
-id:28,
-question:"A man walks 10m South, turns left and walks 12m, then turns left again and walks 10m. How far is he from the start?",
-options:["10m","12m","22m","0m"],
-correct:1
-},
-{
-id:29,
-question:"If + means ÷ and ÷ means ×, then 100 + 5 ÷ 2 = ?",
-options:["10","40","50","20"],
-correct:1
-},
-{
-id:30,
-question:"If 'Red' is called 'Air', 'Air' is called 'Blue', 'Blue' is called 'Water', where do birds fly?",
-options:["Air","Blue","Water","Red"],
-correct:1
-},
-{
-id:31,
-question:"Looking at a clock, it’s 9:30. What is the angle between the hands?",
-options:["90°","105°","120°","75°"],
-correct:1
-},
-{
-id:32,
-question:"Complete: 2, 6, 12, 20, 30, ?",
-options:["40","42","44","46"],
-correct:1
-},
-{
-id:33,
-question:"In a row of 20 students, Raj is 5th from the left. What is his position from the right?",
-options:["15th","16th","14th","17th"],
-correct:1
-},
-{
-id:34,
-question:"Should plastic be banned? Argument 1: Yes, it harms the environment. Argument 2: No, it is very cheap.",
-options:["Only 1 is strong","Only 2 is strong","Both are strong","Neither"],
-correct:0
-},
-{
-id:35,
-question:"If MOUSE is 41, what is CAT?",
-options:["24","30","20","26"],
-correct:0
-},
-{
-id:36,
-question:"If today is Tuesday, what day was it 15 days ago?",
-options:["Monday","Tuesday","Wednesday","Sunday"],
-correct:0
-},
-{
-id:37,
-question:"Hand : Finger :: Leg : ?",
-options:["Toe","Heel","Knee","Walk"],
-correct:0
-},
-{
-id:38,
-question:"Which word cannot be formed from 'COMMUNICATION'?",
-options:["ACTION","UNION","MUSIC","COMMON"],
+q:"How many triangles in a hexagon formed by diagonals?",
+options:["18","20","24","32"],
 correct:2
 },
 {
-id:39,
-question:"Arrange: Sun → Vapor → Cloud → Rain",
-options:["4,2,3,1","1,2,3,4","4,3,2,1","2,4,3,1"],
+q:"If yesterday was 2 days before Monday, today?",
+options:["Saturday","Sunday","Friday","Thursday"],
 correct:0
 },
 {
-id:40,
-question:"How many squares are in a 3×3 grid?",
-options:["9","10","14","13"],
+q:"Choose odd word:",
+options:["Lion","Tiger","Leopard","Elephant"],
+correct:3
+},
+{
+q:"If CAT = 3120, DOG = 4157, RAT = ?",
+options:["1820","18120","1819","1920"],
+correct:1
+},
+{
+q:"Cube painted all sides then cut into 27 cubes. How many have exactly 2 faces painted?",
+options:["8","12","16","20"],
+correct:1
+},
+{
+q:"Find missing: 6,13,28,59,?",
+options:["90","110","122","121"],
 correct:2
+},
+{
+q:"Pointing to woman, 'She is mother of my father's daughter.' Who?",
+options:["Sister","Mother","Daughter","Wife"],
+correct:3
+},
+{
+q:"Find next: Z1, X2, V3, T4,?",
+options:["R5","S5","Q5","P5"],
+correct:0
+},
+{
+q:"If '+' means '-', evaluate 10 + 5.",
+options:["15","5","-5","0"],
+correct:1
+},
+{
+q:"All apples fruits. Some fruits sweet. Conclusion?",
+options:["Some apples sweet","All apples sweet","Cannot determine","No apples sweet"],
+correct:2
+},
+{
+q:"Arrange: Graduation, Job, Promotion, Retirement.",
+options:["1,2,3,4","2,1,3,4","1,3,2,4","1,2,4,3"],
+correct:0
+},
+{
+q:"How many rectangles in 3x2 grid?",
+options:["12","15","18","20"],
+correct:2
+},
+{
+q:"Find next: 11,121,1331,?",
+options:["14641","16161","15151","17171"],
+correct:0
 },
 
-/* ---------------- VERBAL (41–60) ---------------- */
+/* ================= ENGLISH ================= */
 
 {
-id:41,
-question:'Synonym of "ENORMOUS":',
-options:["Tiny","Huge","Weak","Soft"],
+q:"Synonym of EPHEMERAL:",
+options:["Permanent","Short-lived","Colorful","Strong"],
 correct:1
 },
 {
-id:42,
-question:'Antonym of "ANCIENT":',
-options:["Old","Modern","Historic","Fast"],
+q:"Antonym of BENEVOLENT:",
+options:["Kind","Cruel","Generous","Polite"],
 correct:1
 },
 {
-id:43,
-question:"He is ___ university student.",
-options:["a","an","the","no article"],
-correct:0
-},
-{
-id:44,
-question:'Error: "Each of the players have a trophy."',
-options:["Each","players","have","trophy"],
+q:"Choose correct: Neither of the boys ___ present.",
+options:["are","were","is","have"],
 correct:2
 },
 {
-id:45,
-question:'Meaning of "Break a leg":',
-options:["To get hurt","Good luck","To fight","To run fast"],
+q:"Meaning of 'hit the sack':",
+options:["Work hard","Go to sleep","Get angry","Celebrate"],
 correct:1
 },
 {
-id:46,
-question:"I have been living here ___ 2010.",
-options:["for","since","from","by"],
-correct:1
-},
-{
-id:47,
-question:"Correct spelling:",
-options:["Accommodation","Acomodation","Accomodation","Acommodation"],
+q:"Correct spelling:",
+options:["Conscience","Concience","Conscince","Consciense"],
 correct:0
 },
 {
-id:48,
-question:"One word for 'A person who knows many languages':",
-options:["Polyglot","Bilingual","Optimist","Scholar"],
+q:"One word: Study of earthquakes.",
+options:["Biology","Seismology","Geology","Astrology"],
+correct:1
+},
+{
+q:"Fill blank: She is superior ___ me.",
+options:["than","to","from","over"],
+correct:1
+},
+{
+q:"Synonym of PRUDENT:",
+options:["Careless","Wise","Lazy","Angry"],
+correct:1
+},
+{
+q:"Antonym of VIVID:",
+options:["Bright","Dull","Clear","Lively"],
+correct:1
+},
+{
+q:"Choose correct sentence:",
+options:["He has went home.","He has gone home.","He gone home.","He going home."],
+correct:1
+},
+{
+q:"Passage: Automation increases efficiency but may reduce employment. What is the concern?",
+options:["Higher salary","Job loss","Better machines","Less training"],
+correct:1
+},
+{
+q:"Passage: Innovation drives economic growth. What drives growth?",
+options:["Taxes","Innovation","Imports","Population"],
+correct:1
+},
+{
+q:"Passage: Excess sugar leads to health risks. Risk source?",
+options:["Salt","Sugar","Water","Exercise"],
+correct:1
+},
+{
+q:"Passage: Reading improves vocabulary and comprehension. Benefit?",
+options:["Sleep","Better vocabulary","Noise","Stress"],
+correct:1
+},
+{
+q:"Synonym of OBFUSCATE:",
+options:["Clarify","Confuse","Explain","Reveal"],
+correct:1
+},
+{
+q:"Antonym of RESILIENT:",
+options:["Flexible","Fragile","Strong","Elastic"],
+correct:1
+},
+{
+q:"Fill blank: He insisted ___ paying.",
+options:["on","for","to","at"],
 correct:0
 },
 {
-id:49,
-question:"Doctor : Patient :: Teacher : ?",
-options:["School","Student","Books","Class"],
+q:"Meaning of 'burn the midnight oil':",
+options:["Waste fuel","Study late","Cook food","Travel"],
 correct:1
 },
 {
-id:50,
-question:"Rearrange: P the book Q on the table R I S kept",
-options:["RSPQ","RPSQ","PRSQ","SQPR"],
-correct:1
-},
-{
-id:51,
-question:'Passive: "She wrote a letter."',
-options:["A letter is written by her.","A letter was written by her.","She has written a letter.","Letter written by her"],
-correct:1
-},
-{
-id:52,
-question:"The cat sat ___ the mat.",
-options:["on","in","at","over"],
+q:"Article: ___ MBA graduate.",
+options:["A","An","The","None"],
 correct:0
 },
 {
-id:53,
-question:'Synonym of "CANDID":',
-options:["Sweet","Honest","Hidden","Cruel"],
-correct:1
-},
-{
-id:54,
-question:'Antonym of "OPTIMIST":',
-options:["Hopeful","Pessimist","Idealist","Realist"],
-correct:1
-},
-{
-id:55,
-question:'Correction: "He don’t like apples."',
-options:["He not like","He doesn't likes","He doesn't like","Correct"],
-correct:2
-},
-{
-id:56,
-question:'Meaning of "A piece of cake":',
-options:["Very easy","Very tasty","Expensive","Small part"],
-correct:0
-},
-{
-id:57,
-question:"Correct sentence:",
-options:["He is more taller than me.","He is taller than me.","He is tallest than me.","He taller me"],
-correct:1
-},
-{
-id:58,
-question:"The sun ___ in the east.",
-options:["rise","rises","rising","rose"],
-correct:1
-},
-{
-id:59,
-question:'Synonym of "FRAGILE":',
-options:["Strong","Delicate","Heavy","Fast"],
-correct:1
-},
-{
-id:60,
-question:"A place where birds are kept:",
-options:["Aquarium","Aviary","Zoo","Stable"],
+q:"Plural of CRITERION:",
+options:["Criterions","Criteria","Criterion","Criterias"],
 correct:1
 }
 
 ];
 
 
-// State Variables
 let currentQuestion = 0;
-let selectedAnswers = {};
+let userAnswers = new Array(questions.length).fill(null);
 let markedQuestions = new Set();
-let timeLeft = 45 * 60; // 45 minutes in seconds
+let timeLeft = 2700; // 45 minutes in seconds
 let timerInterval;
+let violations = 0;
+let examStarted = false;
+let isFullscreen = false;
 
-// Initialize Quiz
-function initQuiz() {
-    renderQuestionGrid();
-    loadQuestion();
+// Enable start button when checkbox is checked
+document.addEventListener('DOMContentLoaded', function() {
+    const agreeCheckbox = document.getElementById('agreeCheckbox');
+    const startExamBtn = document.getElementById('startExamBtn');
+    
+    if (agreeCheckbox && startExamBtn) {
+        agreeCheckbox.addEventListener('change', function() {
+            startExamBtn.disabled = !this.checked;
+        });
+    }
+});
+
+// Start exam function
+function startExam() {
+    // Hide start screen
+    document.getElementById('startScreen').classList.add('hidden');
+    
+    // Show quiz interface
+    document.getElementById('quizInterface').classList.remove('hidden');
+    
+    // Enter fullscreen
+    enterFullscreen();
+    
+    // Mark exam as started
+    examStarted = true;
+    
+    // Initialize quiz
+    init();
+}
+
+// Enter fullscreen mode
+function enterFullscreen() {
+    const elem = document.documentElement;
+    
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(err => {
+            console.log('Fullscreen error:', err);
+        });
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+    
+    isFullscreen = true;
+}
+
+// Exit fullscreen (only for results)
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+    
+    isFullscreen = false;
+}
+
+// Show warning overlay
+function showWarning(message) {
+    violations++;
+    document.getElementById('warningMessage').innerText = message;
+    document.getElementById('violationCount').innerText = violations;
+    document.getElementById('warningOverlay').classList.remove('hidden');
+    
+    // Log violation (in a real system, this would be sent to server)
+    console.log(`Violation ${violations}: ${message}`);
+}
+
+// Dismiss warning
+function dismissWarning() {
+    document.getElementById('warningOverlay').classList.add('hidden');
+    
+    // Re-enter fullscreen
+    if (examStarted && !document.getElementById('resultsContainer').classList.contains('hidden') === false) {
+        enterFullscreen();
+    }
+}
+
+// Monitor fullscreen changes
+document.addEventListener('fullscreenchange', function() {
+    if (examStarted && !document.fullscreenElement && !document.getElementById('resultsContainer').classList.contains('hidden') === false) {
+        showWarning('You exited fullscreen mode! Please stay in fullscreen.');
+        isFullscreen = false;
+    } else if (document.fullscreenElement) {
+        isFullscreen = true;
+    }
+});
+
+// Webkit fullscreen change (Safari)
+document.addEventListener('webkitfullscreenchange', function() {
+    if (examStarted && !document.webkitFullscreenElement && !document.getElementById('resultsContainer').classList.contains('hidden') === false) {
+        showWarning('You exited fullscreen mode! Please stay in fullscreen.');
+        isFullscreen = false;
+    } else if (document.webkitFullscreenElement) {
+        isFullscreen = true;
+    }
+});
+
+// Detect tab switching (visibility change)
+document.addEventListener('visibilitychange', function() {
+    if (examStarted && document.hidden && !document.getElementById('resultsContainer').classList.contains('hidden') === false) {
+        showWarning('You switched tabs or minimized the window!');
+    }
+});
+
+// Detect window blur (switching to another application)
+window.addEventListener('blur', function() {
+    if (examStarted && !document.getElementById('resultsContainer').classList.contains('hidden') === false) {
+        showWarning('You switched to another application!');
+    }
+});
+
+// Prevent right-click during exam
+document.addEventListener('contextmenu', function(e) {
+    if (examStarted && !document.getElementById('resultsContainer').classList.contains('hidden') === false) {
+        e.preventDefault();
+        showWarning('Right-click is disabled during the exam!');
+    }
+});
+
+// Detect problematic key combinations
+document.addEventListener('keydown', function(e) {
+    if (!examStarted || !document.getElementById('resultsContainer').classList.contains('hidden')) {
+        return;
+    }
+    
+    // Block Escape key
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        showWarning('Escape key is disabled during the exam!');
+    }
+    
+    // Block Alt+Tab, Windows key, F11, etc.
+    if (e.altKey && e.key === 'Tab') {
+        e.preventDefault();
+        showWarning('Alt+Tab is disabled during the exam!');
+    }
+    
+    // Block Windows/Command key
+    if (e.key === 'Meta' || e.metaKey) {
+        e.preventDefault();
+        showWarning('Windows/Command key is disabled during the exam!');
+    }
+    
+    // Block F keys (except F5 for refresh)
+    if (e.key.startsWith('F') && e.key !== 'F5') {
+        e.preventDefault();
+        showWarning('Function keys are disabled during the exam!');
+    }
+    
+    // Block Ctrl+W (close tab)
+    if (e.ctrlKey && (e.key === 'w' || e.key === 'W')) {
+        e.preventDefault();
+        showWarning('Closing the tab is not allowed during the exam!');
+    }
+    
+    // Block Ctrl+Shift+I (DevTools)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I')) {
+        e.preventDefault();
+        showWarning('Developer tools are disabled during the exam!');
+    }
+    
+    // Block Ctrl+U (view source)
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        showWarning('Viewing page source is disabled during the exam!');
+    }
+});
+
+// Initialize the quiz
+function init() {
+    renderQuestion();
+    renderPalette();
     startTimer();
-    updateStats();
+    updateProgress();
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', handleKeyPress);
 }
 
-// Start Timer
-function startTimer() {
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        updateTimerDisplay();
-        
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            submitQuiz();
+// Keyboard navigation
+function handleKeyPress(e) {
+    if (!examStarted) return;
+    
+    if (e.key === 'ArrowLeft' && currentQuestion > 0) {
+        previousQuestion();
+    } else if (e.key === 'ArrowRight' && currentQuestion < questions.length - 1) {
+        nextQuestion();
+    } else if (e.key >= '1' && e.key <= '4') {
+        const optionIndex = parseInt(e.key) - 1;
+        if (optionIndex < questions[currentQuestion].options.length) {
+            selectOption(optionIndex);
         }
-    }, 1000);
+    }
 }
 
-// Update Timer Display
-function updateTimerDisplay() {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    const timerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    document.getElementById('timer').textContent = timerText;
-}
-
-// Render Question Grid
-function renderQuestionGrid() {
-    const grid = document.getElementById('questionGrid');
-    grid.innerHTML = '';
+// Render current question
+function renderQuestion() {
+    const q = questions[currentQuestion];
     
-    quizData.forEach((_, index) => {
-        const btn = document.createElement('button');
-        btn.className = 'question-number';
-        btn.textContent = index + 1;
-        btn.onclick = () => jumpToQuestion(index);
-        grid.appendChild(btn);
-    });
-    
-    updateQuestionGrid();
-}
-
-// Update Question Grid Colors
-function updateQuestionGrid() {
-    const buttons = document.querySelectorAll('.question-number');
-    
-    buttons.forEach((btn, index) => {
-        // Remove all status classes
-        btn.classList.remove('current', 'answered', 'marked', 'unattempted');
-        
-        // Add appropriate class
-        if (index === currentQuestion) {
-            btn.classList.add('current');
-        }
-        
-        if (selectedAnswers[index] !== undefined) {
-            btn.classList.add('answered');
-        } else if (markedQuestions.has(index)) {
-            btn.classList.add('marked');
-        } else {
-            btn.classList.add('unattempted');
-        }
-    });
-}
-
-// Load Current Question
-function loadQuestion() {
-    const question = quizData[currentQuestion];
-    
-    // Update question number and text
-    document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1}`;
-    document.getElementById('questionText').textContent = question.question;
+    // Update question header
+    document.getElementById('questionNumber').innerText = `Question ${currentQuestion + 1} of ${questions.length}`;
+    document.getElementById('questionNumberIcon').innerText = currentQuestion + 1;
+    document.getElementById('currentNum').innerText = currentQuestion + 1;
+    document.getElementById('totalNum').innerText = questions.length;
+    document.getElementById('questionText').innerText = q.q;
     
     // Render options
-    const optionsContainer = document.getElementById('optionsContainer');
-    optionsContainer.innerHTML = '';
+    const container = document.getElementById('optionsContainer');
+    container.innerHTML = '';
     
-    question.options.forEach((option, index) => {
+    q.options.forEach((opt, idx) => {
+        const isSelected = userAnswers[currentQuestion] === idx;
+        const optionLetter = String.fromCharCode(65 + idx);
+        
         const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.textContent = option;
+        btn.className = `w-full p-5 rounded-2xl border-2 text-left transition-all font-medium option-hover ${
+            isSelected 
+            ? 'border-indigo-600 bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 ring-4 ring-indigo-100 shadow-lg' 
+            : 'border-slate-200 hover:border-indigo-300 bg-white text-slate-700'
+        }`;
         
-        if (selectedAnswers[currentQuestion] === index) {
-            btn.classList.add('selected');
-        }
+        btn.innerHTML = `
+            <div class="flex items-center gap-4">
+                <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl font-bold text-sm ${
+                    isSelected 
+                    ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md' 
+                    : 'bg-slate-100 text-slate-600'
+                }">
+                    ${optionLetter}
+                </span>
+                <span class="flex-1">${opt}</span>
+                ${isSelected ? `
+                    <svg class="w-6 h-6 text-indigo-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                ` : ''}
+            </div>
+        `;
         
-        btn.onclick = () => selectAnswer(index);
-        optionsContainer.appendChild(btn);
+        btn.onclick = () => selectOption(idx);
+        container.appendChild(btn);
+        
+        // Add animation delay
+        btn.style.animationDelay = `${idx * 0.05}s`;
+        btn.classList.add('animate-fade-in');
     });
-    
+
     // Update navigation buttons
-    updateNavigationButtons();
+    const previousBtn = document.getElementById('previousBtn');
+    previousBtn.disabled = currentQuestion === 0;
+    
+    const nextBtn = document.getElementById('nextBtn');
+    const nextBtnText = document.getElementById('nextBtnText');
+    if (currentQuestion === questions.length - 1) {
+        nextBtnText.innerText = 'Review & Submit';
+    } else {
+        nextBtnText.innerText = 'Next';
+    }
+    
+    // Update mark button
     updateMarkButton();
-    updateQuestionGrid();
+    
+    // Update progress
+    updateProgress();
 }
 
-// Select Answer
-function selectAnswer(optionIndex) {
-    selectedAnswers[currentQuestion] = optionIndex;
-    
-    // Update option buttons
-    const optionButtons = document.querySelectorAll('.option-btn');
-    optionButtons.forEach((btn, index) => {
-        if (index === optionIndex) {
-            btn.classList.add('selected');
-        } else {
-            btn.classList.remove('selected');
-        }
-    });
-    
-    updateStats();
-    updateQuestionGrid();
+// Select an option
+function selectOption(idx) {
+    userAnswers[currentQuestion] = idx;
+    renderQuestion();
+    renderPalette();
 }
 
-// Toggle Mark for Review
+// Toggle mark for review
 function toggleMark() {
     if (markedQuestions.has(currentQuestion)) {
         markedQuestions.delete(currentQuestion);
     } else {
         markedQuestions.add(currentQuestion);
     }
-    
     updateMarkButton();
-    updateStats();
-    updateQuestionGrid();
+    renderPalette();
 }
 
-// Update Mark Button
+// Update mark button appearance
 function updateMarkButton() {
     const markBtn = document.getElementById('markBtn');
+    const markText = document.getElementById('markText');
+    
     if (markedQuestions.has(currentQuestion)) {
-        markBtn.classList.add('marked');
-        markBtn.innerHTML = '⭐ Unmark';
+        markBtn.classList.add('bg-amber-500/30', 'text-amber-100');
+        markText.innerText = 'Marked';
     } else {
-        markBtn.classList.remove('marked');
-        markBtn.innerHTML = '⭐ Mark for Review';
+        markBtn.classList.remove('bg-amber-500/30', 'text-amber-100');
+        markText.innerText = 'Mark';
     }
 }
 
-// Update Navigation Buttons
-function updateNavigationButtons() {
-    const previousBtn = document.getElementById('previousBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const submitBtn = document.getElementById('submitBtn');
+// Render question palette
+function renderPalette() {
+    const grid = document.getElementById('questionGrid');
+    grid.innerHTML = '';
     
-    // Previous button
-    previousBtn.disabled = currentQuestion === 0;
+    let answered = 0;
     
-    // Show/hide next and submit buttons
-    if (currentQuestion === quizData.length - 1) {
-        nextBtn.style.display = 'none';
-        submitBtn.style.display = 'block';
+    questions.forEach((_, i) => {
+        const isCurrent = i === currentQuestion;
+        const isAnswered = userAnswers[i] !== null;
+        const isMarked = markedQuestions.has(i);
+        
+        if (isAnswered) answered++;
+
+        const btn = document.createElement('button');
+        btn.className = `h-11 w-11 rounded-xl font-bold text-sm transition-all border-2 palette-btn ${
+            isCurrent ? 'ring-4 ring-offset-2 ring-indigo-400 scale-110 z-10' : ''
+        } ${
+            isMarked ? 'bg-gradient-to-br from-amber-400 to-orange-500 text-white border-amber-500 shadow-md' :
+            isAnswered ? 'bg-gradient-to-br from-green-400 to-emerald-500 text-white border-green-500 shadow-md' : 
+            'bg-white text-slate-500 border-slate-300 hover:border-slate-400'
+        }`;
+        
+        btn.innerText = i + 1;
+        btn.onclick = () => { 
+            currentQuestion = i; 
+            renderQuestion(); 
+        };
+        
+        // Add tooltip
+        btn.title = isMarked ? 'Marked for review' : isAnswered ? 'Answered' : 'Not visited';
+        
+        grid.appendChild(btn);
+    });
+
+    // Update statistics
+    document.getElementById('answeredCount').innerText = answered;
+    document.getElementById('markedCount').innerText = markedQuestions.size;
+    document.getElementById('remainingCount').innerText = questions.length - answered;
+}
+
+// Update progress bar
+function updateProgress() {
+    const answered = userAnswers.filter(ans => ans !== null).length;
+    const progress = (answered / questions.length) * 100;
+    document.getElementById('progressBar').style.width = `${progress}%`;
+}
+
+// Navigate to next question
+function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-        nextBtn.style.display = 'block';
-        submitBtn.style.display = 'none';
+        // Show confirmation before submitting
+        const unanswered = userAnswers.filter(ans => ans === null).length;
+        if (unanswered > 0) {
+            const confirmSubmit = confirm(`You have ${unanswered} unanswered question(s). Do you want to submit the test?`);
+            if (confirmSubmit) {
+                submitQuiz();
+            }
+        } else {
+            submitQuiz();
+        }
     }
 }
 
-// Update Stats
-function updateStats() {
-    const answeredCount = Object.keys(selectedAnswers).length;
-    const markedCount = markedQuestions.size;
-    const remainingCount = quizData.length - answeredCount;
-    
-    document.getElementById('answeredCount').textContent = answeredCount;
-    document.getElementById('markedCount').textContent = markedCount;
-    document.getElementById('remainingCount').textContent = remainingCount;
-}
-
-// Jump to Question
-function jumpToQuestion(index) {
-    currentQuestion = index;
-    loadQuestion();
-}
-
-// Previous Question
+// Navigate to previous question
 function previousQuestion() {
     if (currentQuestion > 0) {
         currentQuestion--;
-        loadQuestion();
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
-// Next Question
-function nextQuestion() {
-    if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        loadQuestion();
-    }
+// Start the timer
+function startTimer() {
+    const timerDisplay = document.getElementById('timer');
+    const timerCard = document.getElementById('timerCard');
+    
+    timerInterval = setInterval(() => {
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        timerDisplay.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        
+        // Add warning styling when time is running low (last 5 minutes)
+        if (timeLeft <= 300 && timeLeft > 0) {
+            timerCard.classList.add('timer-warning');
+        }
+        
+        // Auto-submit when time runs out
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert('Time is up! Your test will be submitted automatically.');
+            submitQuiz();
+        }
+        
+        timeLeft--;
+    }, 1000);
 }
 
-// Submit Quiz
+// Submit the quiz
 function submitQuiz() {
+    // Mark exam as ended
+    examStarted = false;
+    
+    // Clear the timer
     clearInterval(timerInterval);
     
-    // Calculate score
-    let correctCount = 0;
-    Object.keys(selectedAnswers).forEach((qIndex) => {
-        if (selectedAnswers[qIndex] === quizData[qIndex].correct) {
-            correctCount++;
+    let correct = 0;
+    let incorrect = 0;
+    let skipped = 0;
+    
+    const reviewList = document.getElementById('answersList');
+    reviewList.innerHTML = '';
+
+    // Calculate results
+    questions.forEach((q, i) => {
+        const uAns = userAnswers[i];
+        const item = document.createElement('div');
+        item.className = 'p-5 rounded-2xl border-2 transition-all hover:shadow-md';
+        
+        if (uAns === null) {
+            skipped++;
+            item.classList.add('bg-slate-50', 'border-slate-200');
+            item.innerHTML = `
+                <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-8 h-8 bg-slate-400 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                        ${i + 1}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-slate-800 mb-2">${q.q}</p>
+                        <p class="text-sm text-slate-500 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                            </svg>
+                            Not Attempted
+                        </p>
+                        <p class="text-sm text-green-600 font-semibold mt-1">Correct Answer: ${q.options[q.correct]}</p>
+                    </div>
+                </div>
+            `;
+        } else if (uAns === q.correct) {
+            correct++;
+            item.classList.add('bg-green-50', 'border-green-200');
+            item.innerHTML = `
+                <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                        ${i + 1}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-slate-800 mb-2">${q.q}</p>
+                        <p class="text-sm text-green-700 font-bold flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Correct: ${q.options[q.correct]}
+                        </p>
+                    </div>
+                </div>
+            `;
+        } else {
+            incorrect++;
+            item.classList.add('bg-red-50', 'border-red-200');
+            item.innerHTML = `
+                <div class="flex items-start gap-3">
+                    <div class="flex-shrink-0 w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                        ${i + 1}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-slate-800 mb-2">${q.q}</p>
+                        <p class="text-sm text-red-700 font-bold flex items-center gap-2 mb-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                            </svg>
+                            Your Answer: ${q.options[uAns]}
+                        </p>
+                        <p class="text-sm text-green-600 font-semibold">Correct Answer: ${q.options[q.correct]}</p>
+                    </div>
+                </div>
+            `;
         }
+        
+        reviewList.appendChild(item);
     });
+
+    // Update score display
+    const percentage = Math.round((correct / questions.length) * 100);
+    document.getElementById('scoreNumber').innerText = correct;
+    document.getElementById('percentage').innerText = `${percentage}% Accuracy`;
+    document.getElementById('correctCount').innerText = correct;
+    document.getElementById('incorrectCount').innerText = incorrect;
+    document.getElementById('unattemptedCount').innerText = skipped;
     
-    const incorrectCount = Object.keys(selectedAnswers).length - correctCount;
-    const unattemptedCount = quizData.length - Object.keys(selectedAnswers).length;
-    const percentage = ((correctCount / quizData.length) * 100).toFixed(1);
+    // Animate the circular progress
+    const circumference = 2 * Math.PI * 88;
+    const offset = circumference - (percentage / 100) * circumference;
+    setTimeout(() => {
+        document.getElementById('scoreCircle').style.strokeDashoffset = offset;
+    }, 100);
     
-    // Update results
-    document.getElementById('scoreNumber').textContent = correctCount;
-    document.getElementById('scoreTotal').textContent = `/ ${quizData.length}`;
-    document.getElementById('percentage').textContent = `${percentage}%`;
-    document.getElementById('correctCount').textContent = correctCount;
-    document.getElementById('incorrectCount').textContent = incorrectCount;
-    document.getElementById('unattemptedCount').textContent = unattemptedCount;
+    // Exit fullscreen before showing results
+    exitFullscreen();
     
-    // Generate answer key
-    const answersList = document.getElementById('answersList');
-    answersList.innerHTML = '';
+    // Show results modal
+    document.getElementById('resultsContainer').classList.remove('hidden');
     
-    quizData.forEach((q, index) => {
-        const answerItem = document.createElement('div');
-        answerItem.className = 'answer-item';
-        
-        let answerHTML = `<strong>Q${index + 1}:</strong> ${q.options[q.correct]}`;
-        
-        if (selectedAnswers[index] !== undefined && selectedAnswers[index] !== q.correct) {
-            answerHTML += `<span class="wrong-answer">(You selected: ${q.options[selectedAnswers[index]]})</span>`;
-        }
-        
-        answerItem.innerHTML = answerHTML;
-        answersList.appendChild(answerItem);
-    });
-    
-    // Show results, hide quiz
-    document.getElementById('quizContainer').style.display = 'none';
-    document.getElementById('resultsContainer').style.display = 'block';
+    // Scroll to top of results
+    document.getElementById('resultsContainer').scrollTop = 0;
 }
 
-// Restart Quiz
-function restartQuiz() {
-    // Reset state
-    currentQuestion = 0;
-    selectedAnswers = {};
-    markedQuestions = new Set();
-    timeLeft = 45 * 60;
-    
-    // Hide results, show quiz
-    document.getElementById('resultsContainer').style.display = 'none';
-    document.getElementById('quizContainer').style.display = 'grid';
-    
-    // Reinitialize
-    initQuiz();
-}
-
-// Initialize when page loads
-window.onload = initQuiz;
+// Prevent accidental page refresh during exam
+window.addEventListener('beforeunload', function (e) {
+    if (examStarted && document.getElementById('resultsContainer').classList.contains('hidden')) {
+        e.preventDefault();
+        e.returnValue = 'Are you sure you want to leave? Your exam progress will be lost.';
+        return e.returnValue;
+    }
+});
