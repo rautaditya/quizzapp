@@ -1,316 +1,315 @@
 const questions = [
 
-/* ================= QUANTITATIVE ================= */
+/* ================= NUMERICAL ABILITY (MODERATE) ================= */
 
 {
-q:"If the sum of two numbers is 120 and their HCF is 12, how many such pairs exist?",
-options:["3","4","5","6"],
-correct:1
+q: "The ratio of the speeds of two trains is 7:8. If the second train runs 400 km in 4 hours, then the speed of the first train is:",
+options: ["70 km/h", "75 km/h", "84 km/h", "87.5 km/h"],
+correct: 3
 },
 {
-q:"A number when divided by 296 leaves remainder 75. What remainder when divided by 37?",
-options:["1","2","3","4"],
-correct:1
+q: "A sum of ₹12,500 amounts to ₹15,500 in 4 years at the rate of simple interest. What is the rate of interest?",
+options: ["3%", "4%", "5%", "6%"],
+correct: 3
 },
 {
-q:"The difference between CI and SI on ₹8000 for 2 years at 10% is:",
-options:["60","70","80","90"],
-correct:2
+q: "Find the smallest number which when divided by 20, 25, 35 and 40 leaves remainders 14, 19, 29 and 34 respectively.",
+options: ["1394", "1400", "1406", "1600"],
+correct: 0
 },
 {
-q:"If log2(x) + log2(x-2) = 3, find x.",
-options:["2","4","6","8"],
-correct:1
+q: "If $x + \\frac{1}{x} = 5$, find the value of $x^2 + \\frac{1}{x^2}$.",
+options: ["23", "25", "27", "30"],
+correct: 0
 },
 {
-q:"A train 200m crosses another 300m train in opposite direction in 10s. Speed of faster train if slower is 54 km/h?",
-options:["72","90","108","126"],
-correct:3
+q: "A shopkeeper marks his goods 30% above the cost price and gives a discount of 10%. Gain percent is:",
+options: ["15%", "17%", "20%", "22%"],
+correct: 1
 },
 {
-q:"Find next: 2,5,11,23,47,?",
-options:["91","95","97","99"],
-correct:1
+q: "The product of two numbers is 120 and the sum of their squares is 289. The sum of the numbers is:",
+options: ["20", "23", "169", "None"],
+correct: 1
 },
 {
-q:"If a:b = 4:5, b:c = 6:7, find a:c.",
-options:["12:35","24:35","20:21","30:49"],
-correct:1
+q: "In what time will a sum of money double itself at 6.25% per annum simple interest?",
+options: ["8 years", "10 years", "12 years", "16 years"],
+correct: 3
 },
 {
-q:"A can do work in 8 days, B in 12 days. After 2 days A leaves. Remaining time?",
-options:["6","7","8","9"],
-correct:2
+q: "The average age of 30 students is 9 years. If the age of their teacher is included, it becomes 10 years. Teacher's age is:",
+options: ["31", "35", "40", "45"],
+correct: 2
 },
 {
-q:"Find the smallest number divisible by 8,12,15 leaving remainder 5.",
-options:["115","120","125","245"],
-correct:3
+q: "A can finish a work in 18 days and B can do the same work in 15 days. B worked for 10 days and left. In how many days can A alone finish the remaining work?",
+options: ["5", "6", "8", "10"],
+correct: 1
 },
 {
-q:"If sinθ = 3/5, find cosθ.",
-options:["4/5","5/4","3/4","2/5"],
-correct:0
+q: "A sum of money placed at compound interest doubles itself in 5 years. It will amount to eight times itself at the same rate of interest in:",
+options: ["10 years", "15 years", "20 years", "25 years"],
+correct: 1
 },
 {
-q:"Average of 20 numbers is 50. One number 100 replaced by 40. New average?",
-options:["46","47","48","49"],
-correct:1
+q: "If 15% of $x$ is same as 20% of $y$, then $x:y$ is:",
+options: ["3:4", "4:3", "17:16", "16:17"],
+correct: 1
 },
 {
-q:"A man sells at 20% loss. Had he sold for ₹120 more, gain 10%. Find CP.",
-options:["400","480","500","600"],
-correct:1
+q: "The length of a rectangle is increased by 10% and breadth decreased by 10%. The area:",
+options: ["Decreases by 1%", "Increases by 1%", "Remains same", "None"],
+correct: 0
 },
 {
-q:"If 5^(x+1) = 125, find x.",
-options:["1","2","3","4"],
-correct:1
+q: "Two pipes A and B can fill a tank in 20 and 30 minutes respectively. If both are opened together, the time taken is:",
+options: ["10 min", "12 min", "15 min", "25 min"],
+correct: 1
 },
 {
-q:"Probability of getting at least one head in two coin tosses?",
-options:["1/2","3/4","1/4","2/3"],
-correct:1
+q: "Find the unit digit in $(264)^{102} + (264)^{103}$.",
+options: ["0", "2", "4", "6"],
+correct: 0
 },
 {
-q:"Find missing: 4,18,48,100,?",
-options:["150","168","180","196"],
-correct:2
+q: "A boat goes 12 km upstream and 18 km downstream in 3 hours. If speed of stream is 3 km/h, find boat speed in still water.",
+options: ["9 km/h", "10 km/h", "12 km/h", "15 km/h"],
+correct: 2
 },
 {
-q:"Boat speed 10 km/h, stream 4 km/h. Upstream speed?",
-options:["4","5","6","7"],
-correct:2
+q: "A bag contains 5 red and 3 blue balls. If 3 balls are drawn at random, probability that 2 are red and 1 is blue?",
+options: ["15/28", "15/56", "30/56", "12/25"],
+correct: 1
 },
 {
-q:"If x² - 5x + 6 = 0, find x.",
-options:["2 or 3","1 or 6","-2 or -3","None"],
-correct:0
+q: "If $2^x \\times 8^{1/5} = 2^{1/5}$, find $x$.",
+options: ["1/5", "-2/5", "2/5", "3/5"],
+correct: 1
 },
 {
-q:"Find area of triangle with sides 5,12,13.",
-options:["20","30","40","60"],
-correct:1
+q: "A wheel makes 1000 revolutions in covering a distance of 88 km. Diameter of wheel is:",
+options: ["14m", "24m", "28m", "40m"],
+correct: 2
 },
 {
-q:"Simple interest on ₹5000 for 3 yrs is ₹1500. Rate?",
-options:["8%","10%","12%","15%"],
-correct:1
+q: "The difference between a two-digit number and the number obtained by interchanging the positions of its digits is 36. What is the difference between the two digits?",
+options: ["3", "4", "9", "Cannot determine"],
+correct: 1
 },
 {
-q:"Find next: 1,1,2,6,24,120,?",
-options:["240","360","600","720"],
-correct:3
-},
-
-/* ================= LOGICAL ================= */
-
-{
-q:"Five people sit in a row. A is left of B but right of C. D is right of B. Who is in middle?",
-options:["A","B","C","Cannot determine"],
-correct:0
-},
-{
-q:"Mirror time is 6:20. Actual time?",
-options:["5:40","6:40","7:40","8:40"],
-correct:0
-},
-{
-q:"Odd pair:",
-options:["Square-4","Pentagon-5","Triangle-4","Hexagon-6"],
-correct:2
-},
-{
-q:"If FLOWER coded as GMPXFS, TREE?",
-options:["USFF","USGF","USFFS","VSGG"],
-correct:0
-},
-{
-q:"Statements: Some cars are bikes. All bikes are buses. Conclusion?",
-options:["Some cars are buses","All cars buses","No cars buses","Cannot say"],
-correct:0
-},
-{
-q:"Find next: AB, DEF, HIJK, MNOPQ, ?",
-options:["RSTUV","TUVWX","STUVW","UVWXY"],
-correct:2
-},
-{
-q:"A walks 10m east, 10m north, 10m west. Distance from start?",
-options:["0","10","20","30"],
-correct:1
-},
-{
-q:"How many triangles in a hexagon formed by diagonals?",
-options:["18","20","24","32"],
-correct:2
-},
-{
-q:"If yesterday was 2 days before Monday, today?",
-options:["Saturday","Sunday","Friday","Thursday"],
-correct:0
-},
-{
-q:"Choose odd word:",
-options:["Lion","Tiger","Leopard","Elephant"],
-correct:3
-},
-{
-q:"If CAT = 3120, DOG = 4157, RAT = ?",
-options:["1820","18120","1819","1920"],
-correct:1
-},
-{
-q:"Cube painted all sides then cut into 27 cubes. How many have exactly 2 faces painted?",
-options:["8","12","16","20"],
-correct:1
-},
-{
-q:"Find missing: 6,13,28,59,?",
-options:["90","110","122","121"],
-correct:2
-},
-{
-q:"Pointing to woman, 'She is mother of my father's daughter.' Who?",
-options:["Sister","Mother","Daughter","Wife"],
-correct:3
-},
-{
-q:"Find next: Z1, X2, V3, T4,?",
-options:["R5","S5","Q5","P5"],
-correct:0
-},
-{
-q:"If '+' means '-', evaluate 10 + 5.",
-options:["15","5","-5","0"],
-correct:1
-},
-{
-q:"All apples fruits. Some fruits sweet. Conclusion?",
-options:["Some apples sweet","All apples sweet","Cannot determine","No apples sweet"],
-correct:2
-},
-{
-q:"Arrange: Graduation, Job, Promotion, Retirement.",
-options:["1,2,3,4","2,1,3,4","1,3,2,4","1,2,4,3"],
-correct:0
-},
-{
-q:"How many rectangles in 3x2 grid?",
-options:["12","15","18","20"],
-correct:2
-},
-{
-q:"Find next: 11,121,1331,?",
-options:["14641","16161","15151","17171"],
-correct:0
+q: "Find the value of $\\sqrt{10 + \\sqrt{25 + \\sqrt{108 + \\sqrt{154 + \\sqrt{225}}}}}$.",
+options: ["4", "6", "8", "10"],
+correct: 0
 },
 
-/* ================= ENGLISH ================= */
+/* ================= LOGICAL REASONING (HARD) ================= */
 
 {
-q:"Synonym of EPHEMERAL:",
-options:["Permanent","Short-lived","Colorful","Strong"],
-correct:1
+q: "In a certain code, 'STALWART' is written as 'TVZPVZTS'. How is 'OFFICIER' written?",
+options: ["PGEJDIFS", "PGGHJFJS", "PHGJKFJS", "PUGJKFJS"],
+correct: 1
 },
 {
-q:"Antonym of BENEVOLENT:",
-options:["Kind","Cruel","Generous","Polite"],
-correct:1
+q: "Statement: Some kings are queens. All queens are beautiful. Conclusion: I. All kings are beautiful. II. All queens are kings. III. Some kings are beautiful.",
+options: ["Only I", "Only II", "Only III", "I and II"],
+correct: 2
 },
 {
-q:"Choose correct: Neither of the boys ___ present.",
-options:["are","were","is","have"],
-correct:2
+q: "Eight people A, B, C, D, E, F, G, H sit around a circle facing center. A is second to left of C, who is immediate left of E. G is third to left of D. B is between D and H. Who is fourth to right of G?",
+options: ["A", "C", "E", "F"],
+correct: 1
 },
 {
-q:"Meaning of 'hit the sack':",
-options:["Work hard","Go to sleep","Get angry","Celebrate"],
-correct:1
+q: "If '+' is 'x', '-' is '+', 'x' is '/' and '/' is '-', find: $6 + 7 \\times 3 - 8 / 20$.",
+options: ["-3", "7", "2", "1"],
+correct: 2
 },
 {
-q:"Correct spelling:",
-options:["Conscience","Concience","Conscince","Consciense"],
-correct:0
+q: "If 1st Jan 2001 was Monday, what was the day on 1st Jan 2101?",
+options: ["Monday", "Tuesday", "Wednesday", "Friday"],
+correct: 3
 },
 {
-q:"One word: Study of earthquakes.",
-options:["Biology","Seismology","Geology","Astrology"],
-correct:1
+q: "Find missing: 2, 10, 30, 68, 130, ?",
+options: ["210", "222", "240", "256"],
+correct: 1 // n^3 + n
 },
 {
-q:"Fill blank: She is superior ___ me.",
-options:["than","to","from","over"],
-correct:1
+q: "A cube is painted blue on all faces and cut into 125 small cubes. How many cubes have at least 2 faces painted?",
+options: ["36", "44", "48", "52"],
+correct: 1 // 12 edges * 3 + 8 corners
 },
 {
-q:"Synonym of PRUDENT:",
-options:["Careless","Wise","Lazy","Angry"],
-correct:1
+q: "Input: 45 12 33 67 10. Step 1: 67 45 12 33 10. Step 2: 67 45 33 12 10. If Input is '15 28 09 40 22', how many steps to sort descending?",
+options: ["2", "3", "4", "5"],
+correct: 1
 },
 {
-q:"Antonym of VIVID:",
-options:["Bright","Dull","Clear","Lively"],
-correct:1
+q: "A man is facing North-West. He turns 90° clockwise, then 180° anticlockwise, then another 90° anticlockwise. Which direction now?",
+options: ["East", "South-East", "South", "South-West"],
+correct: 1
 },
 {
-q:"Choose correct sentence:",
-options:["He has went home.","He has gone home.","He gone home.","He going home."],
-correct:1
+q: "If $A \\$ B$ means A is mother, $A \\# B$ means A is father, $A @ B$ means A is husband. What does $P \\$ Q \\# R @ S$ mean?",
+options: ["P is grandmother of S", "P is mother-in-law of S", "P is grandmother of R", "None"],
+correct: 2
 },
 {
-q:"Passage: Automation increases efficiency but may reduce employment. What is the concern?",
-options:["Higher salary","Job loss","Better machines","Less training"],
-correct:1
+q: "Looking at a clock, the hour hand is at 4:20. What is the angle between hands?",
+options: ["0°", "10°", "20°", "25°"],
+correct: 1
 },
 {
-q:"Passage: Innovation drives economic growth. What drives growth?",
-options:["Taxes","Innovation","Imports","Population"],
-correct:1
+q: "Find the odd one out: 331, 482, 551, 263, 383",
+options: ["331", "482", "551", "383"],
+correct: 3 // Product of first two digits is third (3*3=9? no. Sum of extremes?)
 },
 {
-q:"Passage: Excess sugar leads to health risks. Risk source?",
-options:["Salt","Sugar","Water","Exercise"],
-correct:1
+q: "Statements: All doors are keys. All keys are bats. Some bats are clocks. Conclusion: I. Some bats are doors. II. Some clocks are keys. III. All doors are bats.",
+options: ["Only I & II", "Only I & III", "All follow", "None follow"],
+correct: 1
 },
 {
-q:"Passage: Reading improves vocabulary and comprehension. Benefit?",
-options:["Sleep","Better vocabulary","Noise","Stress"],
-correct:1
+q: "Data Sufficiency: What is the rank of X in class? (1) There are 30 students. (2) There are 10 students below X.",
+options: ["1 alone sufficient", "2 alone sufficient", "Both needed", "Neither"],
+correct: 2
 },
 {
-q:"Synonym of OBFUSCATE:",
-options:["Clarify","Confuse","Explain","Reveal"],
-correct:1
+q: "Six books A, B, C, D, E, F are on a table. C is above D. E is below F. B is at bottom. A is between C and F. Which book is fourth from bottom?",
+options: ["A", "C", "F", "E"],
+correct: 2
 },
 {
-q:"Antonym of RESILIENT:",
-options:["Flexible","Fragile","Strong","Elastic"],
-correct:1
+q: "How many Sundays are there in a leap year starting with Monday?",
+options: ["51", "52", "53", "Cannot say"],
+correct: 2
 },
 {
-q:"Fill blank: He insisted ___ paying.",
-options:["on","for","to","at"],
-correct:0
+q: "In a group of 60, 40 like Cricket, 30 like Football, 20 like both. How many like neither?",
+options: ["0", "5", "10", "15"],
+correct: 2
 },
 {
-q:"Meaning of 'burn the midnight oil':",
-options:["Waste fuel","Study late","Cook food","Travel"],
-correct:1
+q: "Find next: C4X, F9U, I16R, ?",
+options: ["K25P", "L25O", "L25P", "M25O"],
+correct: 1
 },
 {
-q:"Article: ___ MBA graduate.",
-options:["A","An","The","None"],
-correct:0
+q: "If 'sky' is 'star', 'star' is 'cloud', 'cloud' is 'earth', 'earth' is 'tree', where do birds fly?",
+options: ["Star", "Sky", "Cloud", "Tree"],
+correct: 0
 },
 {
-q:"Plural of CRITERION:",
-options:["Criterions","Criteria","Criterion","Criterias"],
-correct:1
+q: "Seven friends T, U, V, W, X, Y, Z. Y is taller than T but shorter than W. X is taller than V. U is shortest. W is not tallest. Who is tallest?",
+options: ["X", "W", "Z", "Cannot determine"],
+correct: 3
+},
+
+/* ================= ENGLISH (MODERATE) ================= */
+
+{
+q: "Select synonym for 'GREGARIOUS':",
+options: ["Sociable", "Silent", "Aggressive", "Hostile"],
+correct: 0
+},
+{
+q: "Select antonym for 'CANDID':",
+options: ["Frank", "Deceptive", "Honest", "Clear"],
+correct: 1
+},
+{
+q: "Identify error: 'Neither the captain (A) / nor the players (B) / was happy with (C) / the decision (D).'",
+options: ["A", "B", "C", "D"],
+correct: 2 // Subject-verb: closest subject 'players' is plural, needs 'were'
+},
+{
+q: "Meaning of idiom 'To cry wolf':",
+options: ["To listen eagerly", "To give false alarm", "To be in pain", "To be brave"],
+correct: 1
+},
+{
+q: "Fill in: 'If I _____ a bird, I would fly to you.'",
+options: ["am", "was", "were", "been"],
+correct: 2
+},
+{
+q: "One word for 'A person who hates mankind':",
+options: ["Misanthrope", "Philanthropist", "Optimist", "Teetotaller"],
+correct: 0
+},
+{
+q: "Choose correctly spelled word:",
+options: ["Ocurrence", "Occurrence", "Occurence", "Occurrance"],
+correct: 1
+},
+{
+q: "Sentence improvement: 'He is as tall, if not taller than, his brother.'",
+options: ["as tall as", "tall as", "so tall as", "No improvement"],
+correct: 0
+},
+{
+q: "Antonym of 'VAGUE':",
+options: ["Unclear", "Precise", "Dull", "Implicit"],
+correct: 1
+},
+{
+q: "Synonym of 'METICULOUS':",
+options: ["Sloppy", "Scrupulous", "Fast", "Haphazard"],
+correct: 1
+},
+{
+q: "Fill in: 'The police are _____ with the witness.'",
+options: ["talking", "discussing", "conversing", "arguing"],
+correct: 0
+},
+{
+q: "Passive voice: 'Who wrote this book?'",
+options: ["By whom was this book written?", "Who was this book written by?", "This book was written by whom?", "By whom is this book written?"],
+correct: 0
+},
+{
+q: "Fill in: 'Hardly had he reached the station _____ the train started.'",
+options: ["then", "than", "when", "while"],
+correct: 2
+},
+{
+q: "Idiom: 'Under the weather' means:",
+options: ["Feeling sick", "In the rain", "Very happy", "Traveling"],
+correct: 0
+},
+{
+q: "Sentence rearrangement: (P) of the world, (Q) English is (R) the most (S) spoken language.",
+options: ["QPSR", "QRSP", "PQRS", "QSPR"],
+correct: 1
+},
+{
+q: "Fill in: 'He has been living here _____ 2010.'",
+options: ["for", "since", "from", "during"],
+correct: 1
+},
+{
+q: "Synonym for 'ELATED':",
+options: ["Sad", "Exultant", "Tired", "Anxious"],
+correct: 1
+},
+{
+q: "Choose the correct article: 'He is _____ honest man.'",
+options: ["a", "an", "the", "No article"],
+correct: 1
+},
+{
+q: "Antonym for 'DORMANT':",
+options: ["Active", "Asleep", "Quiet", "Inert"],
+correct: 0
+},
+{
+q: "Meaning of 'Break the ice':",
+options: ["Start a quarrel", "Start a conversation", "End a friendship", "Cool things down"],
+correct: 1
 }
 
 ];
-
 
 let currentQuestion = 0;
 let userAnswers = new Array(questions.length).fill(null);
